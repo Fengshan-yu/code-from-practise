@@ -12,20 +12,6 @@ Created on Sat Mar  5 16:04:02 2022
 text1 = input("Enter a text: ")
 text2 = input("Enter another text: ")
 
-
-list1 = [char for char in text1.lower()]
-list2 = [char for char in text2.lower()]
-
-if sorted(list1) == sorted(list2):
-    print("They are anagrams.")
-else:  
-    print("They are not anagrams")
-
-#solution 2 with removing spaces 
-
-text1 = input("Enter a text: ")
-text2 = input("Enter another text: ")
-
 list1=[]
 list2=[]
 
@@ -50,14 +36,34 @@ if string1 == string2:
     print("They are anagrams.")
 else:  
     print("They are not anagrams")
-    
-    
-# solution 3
-
-
+   
+# solution 2
 text1 = input("Enter a text: ")
 text2 = input("Enter another text: ")
 
+list1=[]
+list2=[]
+
+for char in text1:
+    if char.isalnum():
+        list1.append(char.lower())
+        
+for char in text2:
+    if char.isalnum():
+        list2.append(char.lower())
+        
+string1="".join(sorted(list1))
+string2="".jion(sorted(list2))
+       
+if string1 == string2:
+    print("They are anagrams.")
+else:  
+    print("They are not anagrams")
+    
+#solution 3
+
+text1 = input("Enter a text: ")
+text2 = input("Enter another text: ")
 
 list1 = [char for char in text1.lower() if char.isalnum()]
 list2 = [char for char in text2.lower() if char.isalnum()]
