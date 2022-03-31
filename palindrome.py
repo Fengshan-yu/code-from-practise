@@ -7,13 +7,9 @@ Created on Thu Mar 17 04:19:37 2022
 
 #check whether a phrase is palindrome
 
-
-
 import math
 
-
 phrase = input("Enter a phrase: ")
-
 new_phrase = "".join([char.lower() for char in phrase if char.isalpha()])
 
 if len(new_phrase) <= 1:
@@ -28,6 +24,7 @@ elif len(new_phrase)%2==0:
         print("Yes")
     else:
         print("No")    
+
 else:
     x=math.floor(len(new_phrase)/2)
     strng1=new_phrase[0: x+1]
@@ -38,15 +35,21 @@ else:
         print("Yes")
     else:
         print("No")
-        
-        
+      
 # recursive palindrome
 
-def ispal(text):
+def ispalidrome(s):
+    def get(s):
+        s = "".join([char.lower() for char in s if char.isalpha()])
+        return s
     
-    s = "".join([char.lower() for char in text if char.isalpha()])
-    if len(s)<=1:
-        return True
-    else:
-        return s[0]==s[-1] and ispal(s[1: -1])
-    
+    def isPal(s):
+        if len(s)<=1:
+            return True
+        else:
+            return s[0]==s[-1] and isPal(s[1: -1])
+        
+    return isPal(get(s))
+
+
+print(ispalidrome("Sator Arepo Tenet Opera Rotas"))
